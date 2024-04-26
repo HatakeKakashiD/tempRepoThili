@@ -1,33 +1,22 @@
-// Import the necessary modules
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom"; // Import useParams from react-router-dom
+import { useParams } from "react-router-dom";
 
 export default function UserProfile() {
   const [userDetails, setUserDetails] = useState({});
-  const [error, setError] = useState(null); // State for error handling
-  const { userId } = useParams(); // Extract userId from URL params
+  const { id } = useParams();
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8070/Customer/get/${userId}`)
+      .get(`http://localhost:8070/customer/get/${id}`)
       .then((response) => {
-        console.log("Response data:", response.data); // Log the response data
-        setUserDetails(response.data); // Assuming the response contains user details directly
+        setUserDetails(response.data.user);
+        console.log(response);
       })
       .catch((err) => {
-        setError(err); // Set error state
+        console.error("Error fetching user details:", err.response);
       });
-  }, [userId]);
-
-  if (error) {
-    return (
-      <div className="container">
-        <h1>Error</h1>
-        <p>Error fetching user details: {error.message}</p>
-      </div>
-    );
-  }
+  }, [id]);
 
   return (
     <div className="container">
