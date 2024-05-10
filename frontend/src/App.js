@@ -1,31 +1,29 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import AddCustomer from "./components/AddCustomer";
-import Home from "./components/Home";
-import UserProfile from "./components/UserProfile";
-import Update from "./components/update";
-import ManageUsers from "./components/manageusers";
-import Login from "./components/Login";
-import Navbar from "./components/Navbar";
-import Aboutus from "./components/Aboutus";
-import RealHome from "./components/realhome.js";
+import './App.css';
+import Allinquiries from "./components/Allinquiries"; // Updated import for AllInquiries
+import Viewuinquiry from './components/Viewuinquiry'; // Updated import for ViewInquiry
+import AddInquiry from './components/AddInquiry';
+import EditInquiry from './components/EditInquiry'; // Updated import for EditInquiry
+import ReviewInquiry from './components/ReviewInquiry'; // Import the ReviewInquiry component
+import Head from './components/Head';
+import StatisticsPage from './components/StatisticsPage';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <Router>
-      <Routes>
-        <Route path="/add" element={<AddCustomer />} />
-        <Route path="/home" element={<Home />} />
-       <Route path="/get/:id" element={<UserProfile />} />
-        <Route path="/update/:id" element={<Update />} />
-        <Route path="/manageusers" element={<ManageUsers />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/Navbar" element={<Navbar />} />
-        <Route path="/Aboutus" element={<Aboutus />} />
-        <Route path="/RealHome" element={<RealHome />} />
-
-       
-      </Routes>
+      <div>
+        <Head/>
+        <Routes>
+          <Route path="/" element={<Allinquiries />} />
+          <Route path="/add" element={<AddInquiry />} />
+          <Route path="/view-inquiries" element={<Viewuinquiry />} />
+          <Route path="/edit/:id" element={<EditInquiry />} />
+          <Route path="/review/:id" render={(props) => <ReviewInquiry {...props} />} />
+          <Route path="/categoryTypeCounts" element={<StatisticsPage />} />
+          <Route path="/prioritizationCounts" element={<StatisticsPage />} />
+        </Routes>
+      </div>
     </Router>
   );
 }
