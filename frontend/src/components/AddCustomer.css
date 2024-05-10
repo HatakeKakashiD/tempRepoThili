@@ -1,65 +1,45 @@
-/* AddCustomer.css */
-body {
-    background-image: url('../images/bgimage.jpg'); /* Path to your image */
-    background-size: cover; /* Cover the entire container */
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Do not repeat the image */
-  }
-  
-  .container {
-    background-color: #0073b1; /* LinkedIn's brand color */
-    color: white;
-    font-family: Arial, sans-serif;
-    padding: 20px;
-    border-radius: 8px;
-    max-width: 400px;
-    margin: auto; /* Center horizontally */
-    min-height: 500px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-top: 250px;
-  }
-  
-  .form-control {
-    margin-bottom: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    color: #333; /* Text color for inputs */
-  }
-  
-  /* Style placeholders */
-  /* AddCustomer.css */
-/* Styles for other elements */
+.center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #ffffff;
+}
 
-select.form-select {
-    color: #333; /* Text color for select element */
-  }
-  
-  /* Style placeholders for select element */
-  select.form-select option[disabled][hidden] {
-    display: none;
-  }
-  
-  select.form-select option[disabled] {
-    color: #999; /* Placeholder text color for select element */
-  }
-  
-  
-  .btn-primary {
-    background-color: #2867B2; /* LinkedIn button color */
-    border: none;
-    padding: 10px 20px;
-    color: white;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .btn-primary:hover {
-    background-color: #255684;
-  }
-  
-  /* Additional styles for other elements as needed */
-  
+.form-container {
+  width: 80%;
+  max-width: 600px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #ffffff;
+  margin-top: -20vh;
+  position: relative; /* Make container relative for absolute positioning of image */
+}
+
+.logo-img {
+  position: absolute;
+  top: 500px; /* Adjust top position as needed */
+  left: 50%; /* Center image horizontally */
+  transform: translateX(-50%); /* Center image horizontally */
+  width: 100px; /* Set width of the image */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.submit-button {
+  float: right;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Add additional styles as needed */

@@ -1,0 +1,33 @@
+.navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: yellow; /* Background color set to yellow */
+    padding: 10px 20px; /* Example padding */
+  }
+  
+  .navbar-links-container {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .navbar-link {
+    font-size: 18px;
+    text-decoration: none;
+    color: black; /* Example link color */
+  }
+  
+  .primary-button {
+    font-size: 15px;
+    background-color: blue; /* Example button color */
+    color: white; /* Example button text color */
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+  }
+  
+  .navbar-cart-icon {
+    font-size: 24px;
+    color: black; /* Example cart icon color */
+  }
+  

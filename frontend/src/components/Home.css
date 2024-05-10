@@ -1,63 +1,71 @@
-/* Home.css */
-body {
-  background-color: black; /* This sets the background color of the entire page to black */
+.home-container {
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  height: 100vh; /* Full viewport height */
 }
 
-.home {
-  height: 100vh;
+
+.home-banner-container {
   display: flex;
   justify-content: center;
+}
+
+.home-text-image-container {
+  display: flex;
   align-items: center;
-  text-align: center;
-  margin-top: 0px;
-  background-color: rgb(1, 5, 14);
+  width: 100%;
+  max-width: 1200px;
 }
 
-.home-text {
-  max-width: 600px;
-  margin: 0 auto;
+.home-text-section {
+  flex: 1;
+  text-align: left;
+  padding-right: 20px;
 }
 
-.options-container {
-  margin-top: 60px;
+.home-image-section {
+  flex: 1;
 }
 
-.btn {
-  display: inline-block;
-  padding: 12px 24px;
-  font-size: 18px;
-  text-decoration: none;
-  color: #fff;
-  background-color: #007bff;
-  border-radius: 5px;
-  transition: transform 0.2s ease-in-out;
-  margin-right: 10px; /* Add margin-right for spacing */
+.banner-image {
+  max-width: 100%;
+  height: auto;
 }
 
-.btn:last-child {
-  margin-right: 0; /* Remove margin-right from last button */
+.home-text-image-container.fade-in-left {
+  animation: fadeInLeft 1s ease-in-out forwards;
 }
 
-.btn:hover {
-  transform: scale(1.1);
+.home-image-section.fade-in-right {
+  animation: fadeInRight 1s ease-in-out forwards;
 }
 
-.square-image {
-  
-  
-  width: 600px; /* Set your desired square size */
-  height: 600px; /* Set your desired square size */
-  object-fit: cover; /* Maintain aspect ratio and cover the container */
-  border-radius: 10px; /* Optional: Add rounded corners */
-  margin: 0 auto; /* Center-align the images horizontally */
-}
-.carousel-container {
-  position: relative;
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-250px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
-.carousel {
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-150px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
+/* Home.css */
+.carousel-image {
+  width: 100%;
+  height: auto; /* Maintain aspect ratio */
+  max-height: 400px; /* Set max height to match image2 */
+}
+
+

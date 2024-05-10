@@ -1,0 +1,46 @@
+.auth-buttons {
+  display: flex;
+  justify-content: center; /* Center align the buttons */
+  gap: 60px; /* Add space between the buttons */
+  width: 100%; /* Full width */
+  margin-top: 50px;
+}
+
+.signup-button {
+  animation: fadeInFromLeft 2s forwards;
+  transition: transform 0.3s ease; /* Smooth transition for scaling */
+}
+
+.login-button {
+  animation: fadeInFromRight 2s forwards;
+  transition: transform 0.3s ease; /* Smooth transition for scaling */
+}
+
+/* Animation on hover */
+/* Animation on hover */
+.signup-button:hover,
+.login-button:hover {
+  transform: scale(1.1); /* Enlarge the button on hover */
+}
+
+@keyframes fadeInFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-150px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(150px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

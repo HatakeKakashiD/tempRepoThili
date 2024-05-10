@@ -11,7 +11,7 @@ const CustomerSchema =new Schema({
         type: Number,
         required:true
     },
-    Address:{
+    address:{
         type: String,
         required:true
     },

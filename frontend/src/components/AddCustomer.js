@@ -1,35 +1,50 @@
+
 import React, { useState } from "react";
 import axios from "axios";
-import "./AddCustomer.css";
+import "./AddCustomer.css"; 
+import logo from "../images/logo.jpg"; 
+import Navbar from "./Navbar";
 
 export default function AddCustomer() {
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
-  const [Address, setEmail] = useState("");
-  const [Password, setPassword] = useState("");
+  const [address, setAddress] = useState("");
+  const [password, setPassword] = useState("");
   const [type, setType] = useState("Customer");
-  const [drivingExperiance, setDrivingExperience] = useState("");
-  const [liscenceYear, setLicenseYear] = useState("");
+  const [drivingExperience, setDrivingExperience] = useState("");
+  const [licenseYear, setLicenseYear] = useState("");
+  const [emailError, setEmailError] = useState("");
 
   const handleTypeChange = (event) => {
     setType(event.target.value);
   };
 
+  const validateEmail = (email) => {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email);
+  };
+
   function sendData(e) {
     e.preventDefault();
+
+    if (!validateEmail(address)) {
+      setEmailError("Please enter a valid email address");
+      return;
+    }
 
     const newCustomer = {
       name,
       age,
       type,
-      Address,
-      Password,
-      drivingExperiance,
-      liscenceYear,
+      address,
+      Password: password, 
+      drivingExperiance: drivingExperience, 
+      liscenceYear: licenseYear, // Updated variable name
     };
     axios
       .post("http://localhost:8070/Customer/add", newCustomer)
       .then(() => {
+       
         alert("Customer Added");
       })
       .catch((err) => {
@@ -39,112 +54,98 @@ export default function AddCustomer() {
     console.log("Form submitted");
     // Display alert
     alert("Form submitted");
-    // You can perform further operations like sending data to a server here
   }
 
   return (
-    <div className="container">
-      <form onSubmit={sendData} className="border p-4">
-        <div className="mb-3">
-          <label htmlFor="nameInput" className="form-label">
-            Name
-          </label>
+    <div>
+
+     <Navbar />
+    <div className="center-container">
+      
+      <form onSubmit={sendData} className="form-container">
+        <div>
+          <label htmlFor="nameInput">Name</label>
           <input
             type="text"
-            className="form-control"
             id="nameInput"
+            className="input-field"
             placeholder="Enter name"
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
         </div>
-        <div className="mb-3">
-          <label htmlFor="ageInput" className="form-label">
-            Age
-          </label>
+        <div>
+          <label htmlFor="ageInput">Age</label>
           <input
             type="number"
-            className="form-control"
             id="ageInput"
+            className="input-field"
             placeholder="Enter age"
             value={age}
             onChange={(e) => setAge(e.target.value)}
           />
         </div>
-        <div className="mb-3">
-          <label htmlFor="emailInput" className="form-label">
-            Email Address
-          </label>
+        <div>
+          <label htmlFor="emailInput">Email Address</label>
           <input
             type="email"
-            className="form-control"
             id="emailInput"
+            className="input-field"
             placeholder="Enter email"
-            value={Address}
-            onChange={(e) => setEmail(e.target.value)}
+            value={address}
+            onChange={(e) => {
+              setAddress(e.target.value);
+              setEmailError(""); 
+            }}
           />
+          {emailError && <div className="error-message">{emailError}</div>}
         </div>
-        <div className="mb-3">
-          <label htmlFor="passwordInput" className="form-label">
-            Password
-          </label>
+        <div>
+          <label htmlFor="passwordInput">Password</label>
           <input
             type="password"
-            className="form-control"
             id="passwordInput"
+            className="input-field"
             placeholder="Enter password"
-            value={Password}
+            value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <div className="mb-3">
-          <label htmlFor="typeSelect" className="form-label">
-            Type
-          </label>
-          <select
-            className="form-select"
-            id="typeSelect"
-            value={type}
-            onChange={handleTypeChange}
-          >
+        <div>
+          <label htmlFor="typeSelect">Type</label>
+          <select id="typeSelect" value={type} onChange={handleTypeChange} className="input-field">
             <option value="Customer">Customer</option>
             <option value="Driver">Driver</option>
           </select>
         </div>
         {type === "Driver" && (
           <div>
-            <div className="mb-3">
-              <label htmlFor="drivingExperienceInput" className="form-label">
-                Driving Experience
-              </label>
+            <div>
+              <label htmlFor="drivingExperienceInput">Driving Experience</label>
               <textarea
-                type="text"
-                className="form-control"
                 id="drivingExperienceInput"
+                className="input-field"
                 placeholder="Type your driving experience"
-                value={drivingExperiance}
+                value={drivingExperience}
                 onChange={(e) => setDrivingExperience(e.target.value)}
               />
             </div>
-            <div className="mb-3">
-              <label htmlFor="licenseYearInput" className="form-label">
-                Year of License
-              </label>
+            <div>
+              <label htmlFor="licenseYearInput">Year of License</label>
               <input
                 type="number"
-                className="form-control"
                 id="licenseYearInput"
+                className="input-field"
                 placeholder="Enter license year"
-                value={liscenceYear}
+                value={licenseYear}
                 onChange={(e) => setLicenseYear(e.target.value)}
               />
             </div>
           </div>
         )}
-        <button type="submit" className="btn btn-primary">
-          Submit
-        </button>
+        <button type="submit" className="submit-button">Submit</button>
       </form>
+    </div>
     </div>
   );
 }

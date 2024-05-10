@@ -1,0 +1,77 @@
+/* manageusers.css */
+
+/* Style the container */
+.center-container {
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 20px;
+  }
+  
+  /* Style the user table */
+  .user-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  /* Style table headers */
+  .user-table th {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  /* Style table rows */
+  .user-table tr {
+    border-bottom: 1px solid #ddd;
+  }
+  
+  /* Style table cells */
+  .user-table td {
+    padding: 10px;
+  }
+  
+  /* Style alternate table rows */
+  .user-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  /* Style the logo image */
+  .logo-img {
+    display: block;
+    margin: 0 auto;
+    max-width: 150px;
+    margin-bottom: 20px;
+  }
+  .center-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .search-bar-container {
+    width: 100%;
+    padding: 10px;
+    background-color: #f0f0f0;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .search-input {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    box-sizing: border-box;
+  }
+  
+  .logo-img {
+    margin-top: 20px; /* Adjust margin as needed */
+  }
+  
+  .user-list {
+    width: 100%;
+    margin-top: 20px; /* Adjust margin as needed */
+  }
+  

@@ -1,48 +1,65 @@
-import React from 'react';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import image1 from '../images/img1.jpg'; // Adjust the path accordingly
-import image2 from '../images/img2.jpg'; // Adjust the path accordingly
-import image3 from '../images/img3.jpg'; // Adjust the path accordingly
-import './Home.css';
+import React from "react";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import Navbar from "./Navbar";
+import { FiArrowRight } from "react-icons/fi";
+import "./Home.css";
+import AuthButtons from "./AuthButtons";
+import AboutUs from "./Aboutus";
 
-function Home() {
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 3000,
-  };
+// Import your images
+import image1 from "../images/img1.jpg";
+import image2 from "../images/img2.jpg";
+import image3 from "../images/img3.jpg";
 
+const Home = () => {
   return (
-    
-    <section className="home" id="home">
-      <div className="home-text">
-        <h1>Welcome to Deepthi Travels!</h1>
-        <div className="slider-container">
-          <Slider {...settings}>
-            <div className="image-container">
-              <img src={image1} alt="Image 1" className="square-image" />
-            </div>
-            <div className="image-container">
-              <img src={image2} alt="Image 2" className="square-image" />
-            </div>
-            <div className="image-container">
-              <img src={image3} alt="Image 3" className="square-image" />
-            </div>
-          </Slider>
-        </div>
-        <div className="options-container">
-          <a href="" className="btn">Login</a>
-          <a href="/add" className="btn">Register</a>
+    <div className="home-container">
+      <Navbar />
+      <div className="home-banner-container" style={{ marginTop: "70px" }}>
+        <div className="dark-overlay"></div>
+        <div className="home-text-image-container fade-in-left">
+          <div className="home-text-section">
+            <h1 className="primary-heading">
+              Your Favourite Food Delivered Hot & Fresh
+            </h1>
+            <p className="primary-text">
+              Healthy switcher chefs do all the prep work, like peeling, chopping
+              & marinating, so you can cook fresh food.
+            </p>
+            <button className="secondary-button">
+              Order Now <FiArrowRight />{" "}
+            </button>
+          </div>
+          <div className="home-image-section fade-in-right">
+            <Carousel
+              autoPlay
+              infiniteLoop
+              useKeyboardArrows
+              dynamicHeight
+              emulateTouch
+            >
+              <div>
+                <img src={image1} alt="Image 1" className="carousel-image" />
+              </div>
+              <div>
+                <img src={image2} alt="Image 2" className="carousel-image" />
+              </div>
+              <div>
+                <img src={image3} alt="Image 3" className="carousel-image" />
+              </div>
+            </Carousel>
+          </div>
         </div>
       </div>
-    </section>
+
+      <div>
+        <AuthButtons />
+      </div>
+
+      <AboutUs />
+    </div>
   );
-}
+};
 
 export default Home;

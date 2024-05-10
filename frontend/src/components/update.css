@@ -1,0 +1,62 @@
+.container {
+  display: flex;
+  flex-direction: column; /* Arrange children vertically */
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Ensure container takes at least full viewport height */
+  background-color: #ffffff;
+  
+}
+
+.form-container {
+  width: 80%;
+  max-width: 600px;
+  padding: 50px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #ffffff;
+  position: relative;
+  margin-top: -30vh;}
+
+
+
+input[type="text"],
+input[type="number"],
+select {
+  width: calc(100% - 24px); /* Adjust for padding and borders */
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box; /* Include padding and border in width calculation */
+}
+
+select {
+  appearance: none;
+}
+
+button {
+  margin-top: 20px; /* Add space between form and button */
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Optional: Style labels for consistent alignment */
+label {
+  margin-bottom: 5px;
+  display: block;
+  width: 100%; /* Ensure labels take full width */
+}
+
+label + input,
+label + select {
+  margin-top: 8px; /* Add space between label and input/select */
+}
+
+h1 {
+  margin-bottom: 20px; /* Add space between "Update Profile" and form */
+}
