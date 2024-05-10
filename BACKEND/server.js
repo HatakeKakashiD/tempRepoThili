@@ -29,9 +29,11 @@ connection.once("open", () => {
     console.log("Mongodb Connection Success!");
 })
 
-const CustomerRouter =require("./routes/Customers.js") 
-app.use("/Customer",CustomerRouter)
+const inquiryRouter = require("./routes/inquiries.js");
 
+http://localhost:8070/inquiry
+
+app.use("/inquiry",inquiryRouter);
 
 app.listen(PORT, () => {
 
